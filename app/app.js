@@ -13,7 +13,7 @@ angular.module('feb',[])
    
 	$scope.fib[0] = 0;
  	$scope.fib[1] = 1;
- 	for(i=2; i<=$scope.value.val; i++){
+ 	for(var i=2; i<=$scope.value.val; i++){
  		$scope.fib[i] = $scope.fib[i-2] + $scope.fib[i-1];
  	}
 	}
@@ -31,17 +31,25 @@ angular.module('feb',[])
 	}
 
 	$scope.increase= function(){
-	$scope.index = $scope.fib.indexOf($scope.res)
-	if($scope.res === $scope.fib[$scope.fib.length-1]){
+	$scope.index = $scope.res === 1 ? $scope.fib.lastIndexOf($scope.res) : $scope.fib.indexOf($scope.res);
+	if($scope.res === ' this is the end of the sequence'){
+		return ;
+	}else if($scope.res === $scope.fib[$scope.fib.length-1]){
 		$scope.res = ' this is the end of the sequence'
+
 	}else{
  	$scope.res =  $scope.fib[$scope.index+1]
+ 	console.log($scope.fib)
  	}
+
 	}
 
 	$scope.decrease = function(){
 		$scope.index = $scope.fib.indexOf($scope.res)
-		if($scope.res === $scope.fib[0]){
+		if($scope.res === ' no number found before this number' ){
+			return ;
+		}
+		else if($scope.res === $scope.fib[0]){
 			$scope.res = ' no number found before this number'
 		}else{
 		 	$scope.res =  $scope.fib[$scope.index-1]
@@ -54,7 +62,6 @@ angular.module('feb',[])
 	$scope.clear = function(){
 	$scope.fib = [] ;
 	$scope.res = 0;
-	$scope.index = 0 ;
 	$scope.value.val = ''
 	
 
