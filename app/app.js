@@ -35,17 +35,26 @@ angular.module('feb',[])
 
 	$scope.increase= function(){
 	$scope.index = $scope.fib.indexOf($scope.res)
+	if($scope.res === $scope.fib[$scope.fib.length-1]){
+		$scope.res = ' this is the end of the sequence'
+	}else{
  	$scope.res =  $scope.fib[$scope.index+1]
+ 	}
  	console.log($scope.value)
 
 	}
 
 	$scope.decrease = function(){
 		$scope.index = $scope.fib.indexOf($scope.res)
+		if($scope.res === $scope.fib[0]){
+			$scope.res = ' no number found before this number'
+		}else{
 		 	$scope.res =  $scope.fib[$scope.index-1]
+		}
+		}
 
 
-	}	
+		
 
 	$scope.clear = function(){
 	$scope.fib = [] ;
