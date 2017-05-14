@@ -9,8 +9,6 @@ angular.module('feb',[])
 	$scope.value = {}
  
 
-   
-
 	$scope.generate = function(){
    
 	$scope.fib[0] = 0;
