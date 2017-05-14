@@ -29,7 +29,6 @@ angular.module('feb',[])
 
 	$scope.calculate = function(){
 		$scope.generate();
-		console.log($scope.fib)
 		$scope.random();
 	}
 
@@ -40,8 +39,6 @@ angular.module('feb',[])
 	}else{
  	$scope.res =  $scope.fib[$scope.index+1]
  	}
- 	console.log($scope.value)
-
 	}
 
 	$scope.decrease = function(){
