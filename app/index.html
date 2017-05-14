@@ -8,17 +8,17 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 </head>
-<body ng-controller='febController as $ctrl'>
+<body ng-controller='febController'>
 
   <center>
-    <h2>enter a number and press enter to generate a fibonacci sequence </h2> 
-    <input type="text" id="fname" name="fname"  ng-model="$ctrl.searchText" ng-keypress='$ctrl.check()' > 
+    <h2>enter a number to start the fibonacci series</h2> 
+    <input type="text" id="fname" name="fname"  ng-model='value.val' > 
     <button class="button button2" ng-click='calculate()'> GO !</button>
     <br>
     <h5 id='res' > {{res}} </h5>
     <button class="button button2" ng-click='increase()'> INCREASE  <i class="fa fa-long-arrow-up"></i></button>
     <button class="button button2" ng-click='decrease()'>DECREASE <i class="fa fa-long-arrow-down"></i></button>
-    <button class="button button2" ng-click='clear' >RESET  <i class="fa fa-refresh" aria-hidden="true"></i></button>
+    <button class="button button2" ng-click='clear()' >RESET  <i class="fa fa-refresh" aria-hidden="true"></i></button>
     <br>
     <h3>you will find the code here </h3>
     <a href="https://github.com/sajedah93/FebTask">  <i class="fa fa-github icon" aria-hidden="true"> </i></a>
