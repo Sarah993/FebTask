@@ -7,35 +7,41 @@ angular.module('feb',[])
 	$scope.rand = 0 ;
 	$scope.res = 0;
 	$scope.value = {}
- 
+	$scope.bounds = [] 
 
+
+
+
+// this function to generate the sequence 
 	$scope.generate = function(){
 		var counter = 0 ; 
-	$scope.fib[0] = 0;
- 	$scope.fib[1] = 1;
- 	var res = 0 ; 
- 	
+		$scope.fib[0] = 0;
+		$scope.fib[1] = 1;
+		var res = 0 ; 
+		for(var i=2; i<=500000; i++){
 
+			res = $scope.fib[i-2] + $scope.fib[i-1];
+			if(res <= $scope.value.val){
+				$scope.fib.push(res)
+				$scope.bounds.push(res)
+			}else{
+				$scope.fib.push(res)
+			}
+		}
 
- 	
- 	for(var i=2; i<=$scope.value.val; i++){
-
- 		res = $scope.fib[i-2] + $scope.fib[i-1];
- 		if(res <= $scope.value.val){
- 			$scope.fib.push(res)
- 		}
 	}
-	console.log($scope.fib)
-
-}
-	
 
 
 
+// this function will select a random number from 1 to N
 	$scope.random = function(){
-		 $scope.rand = $scope.fib[Math.floor(Math.random() * $scope.fib.length)];
-		 $scope.res = $scope.rand;
+		$scope.generate();
+		$scope.rand = $scope.bounds[Math.floor(Math.random() * $scope.bounds.length)];
+		$scope.res = $scope.rand;
+
+		console.log($scope.bounds)
 	}
+
 
 
 	$scope.calculate = function(){
@@ -44,42 +50,28 @@ angular.module('feb',[])
 	}
 
 	$scope.increase= function(){
-	$scope.index = $scope.res === 1 ? $scope.fib.lastIndexOf($scope.res) : $scope.fib.indexOf($scope.res);
-	if($scope.res === ' this is the last term in the sequence'){
-		return ;
-	}else if($scope.res === $scope.fib[$scope.fib.length-1]){
-		$scope.res = ' this is the last term in the sequence'
-
-	}else{
- 	$scope.res =  $scope.fib[$scope.index+1]
- 	console.log($scope.fib)
- 	}
-
+		$scope.index = $scope.res === 1 ? $scope.fib.lastIndexOf($scope.res) : $scope.fib.indexOf($scope.res);
+		$scope.res =  $scope.fib[$scope.index+1]
 	}
 
 	$scope.decrease = function(){
 		$scope.index = $scope.fib.indexOf($scope.res)
-		if($scope.res === ' this is the first term in the sequence'){
+		if($scope.res === 1){
 			return ;
-		}
-		else if($scope.res === $scope.fib[0]){
-			$scope.res = ' this is the first term in the sequence'
+
 		}else{
-		 	$scope.res =  $scope.fib[$scope.index-1]
+			$scope.res =  $scope.fib[$scope.index-1]
 		}
-		}
+	}
 
 
-		
+
 
 	$scope.clear = function(){
-	$scope.fib = [] ;
-	$scope.res = 0;
-	$scope.value.val = ''
-	
-
-
+		$scope.fib = [] ;
+		$scope.res = 0;
+		$scope.value.val = ''
 
 	}
-  });
+});
 
