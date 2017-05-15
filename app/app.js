@@ -38,8 +38,6 @@ angular.module('feb',[])
 		$scope.generate();
 		$scope.rand = $scope.bounds[Math.floor(Math.random() * $scope.bounds.length)];
 		$scope.res = $scope.rand;
-
-		console.log($scope.bounds)
 	}
 
 
@@ -63,8 +61,6 @@ angular.module('feb',[])
 			$scope.res =  $scope.fib[$scope.index-1]
 		}
 	}
-
-
 
 
 	$scope.clear = function(){
