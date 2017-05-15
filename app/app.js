@@ -45,10 +45,10 @@ angular.module('feb',[])
 
 	$scope.increase= function(){
 	$scope.index = $scope.res === 1 ? $scope.fib.lastIndexOf($scope.res) : $scope.fib.indexOf($scope.res);
-	if($scope.res === ' this is the end of the sequence'){
+	if($scope.res === ' this is the last term in the sequence'){
 		return ;
 	}else if($scope.res === $scope.fib[$scope.fib.length-1]){
-		$scope.res = ' this is the end of the sequence'
+		$scope.res = ' this is the last term in the sequence'
 
 	}else{
  	$scope.res =  $scope.fib[$scope.index+1]
@@ -59,11 +59,11 @@ angular.module('feb',[])
 
 	$scope.decrease = function(){
 		$scope.index = $scope.fib.indexOf($scope.res)
-		if($scope.res === ' no number found before this number' ){
+		if($scope.res === ' this is the first term in the sequence'){
 			return ;
 		}
 		else if($scope.res === $scope.fib[0]){
-			$scope.res = ' no number found before this number'
+			$scope.res = ' this is the first term in the sequence'
 		}else{
 		 	$scope.res =  $scope.fib[$scope.index-1]
 		}
