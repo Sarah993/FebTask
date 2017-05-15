@@ -5,18 +5,31 @@ angular.module('feb',[])
 	$scope.fib=[];
 	$scope.index = 0 ; 
 	$scope.rand = 0 ;
-	$scope.res = 0.00;
+	$scope.res = 0;
 	$scope.value = {}
  
 
 	$scope.generate = function(){
-   
+		var counter = 0 ; 
 	$scope.fib[0] = 0;
  	$scope.fib[1] = 1;
+ 	var res = 0 ; 
+ 	
+
+
+ 	
  	for(var i=2; i<=$scope.value.val; i++){
- 		$scope.fib[i] = $scope.fib[i-2] + $scope.fib[i-1];
- 	}
+
+ 		res = $scope.fib[i-2] + $scope.fib[i-1];
+ 		if(res <= $scope.value.val){
+ 			$scope.fib.push(res)
+ 		}
 	}
+	console.log($scope.fib)
+
+}
+	
+
 
 
 	$scope.random = function(){
